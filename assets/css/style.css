@@ -60,7 +60,7 @@ img {
 }
 
 .shadow-effect:hover {
-    box-shadow: -6px 6px 0 0 var(--color-brand);
+    box-shadow: -2px 2px 0 0 var(--color-brand);
 }
 
 .iconbox {
@@ -71,6 +71,17 @@ img {
     justify-content: center;
     font-size: 32px;
     background-color: var(--color-brand);
+    color: var(--color-base);
+}
+
+.iconboxc {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    /* background-color: var(--color-brand); */
     color: var(--color-base);
 }
 
@@ -103,7 +114,7 @@ img {
     }
 
     .navbar-brand img {
-        border: 8px solid var(--color-brand);
+        border: 5px solid var(--color-brand);
     }
 
     /* CONTENT WRAPPER */
