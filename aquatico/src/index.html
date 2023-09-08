@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/style.css">
+    <title>Tailwindcss basico</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body class="text-gray-600" x-data="{ openMenu : false}"
+    :class="openMenu ? 'overflow-hidden' : 'overflow-visible' ">
+
+    <!-- header -->
+    <header class="container max-w-5xl flex mx-auto justify-between items-center bg-white drop-shadow-sm py-4 px-8">
+        <div class="font-black">
+            LOGO
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="flex md:hidden flex-col items-center align-middle" @click="openMenu = !openMenu"
+            :aria-expanded="openMenu" aria-controls="mobile-navigation" aria-label="Navigation Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+            <span class="text-xs">Menu</span>
+        </button>
+
+        <!-- Main Navegation -->
+        <nav class="hidden md:flex">
+            <ul class="flex items-center ml-auto space-x-4">
+                <li>
+                    <a href="#" class="inline-flex py-2 px-3 bg-slate-200 rounded">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Sobre</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Unidades</a>
+                </li>
+                <li>
+                    <a href="#" class="inline-flex py-2 px-3 hover:bg-slate-200 rounded">Contato</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Pop Out Navigation -->
+    <nav id="mobile-navigation" class="fixed top-0 right-0 bottom-0 left-0 backdrop-blur-sm Z-10"
+        :class="openMenu ? 'visible' : 'invisible' " x-clook>
+
+        <!-- UL Links -->
+        <ul class="absolute top-0 right-0 bottom-0 w-11/12 py-4 bg-white drop-shadow-2xl z-10 transition-all"
+            :class="openMenu ? 'translate-x-0' : 'translate-x-full'">
+            <li class="border-b border-inherit">
+                <a href="#" class="block p-4" aria-current="true">Home</a>
+            </li>
+            <li class="border-b border-inherit">
+                <a href="#" class="block p-4">Sobre</a>
+            </li>
+            <li class="border-b border-inherit">
+                <a href="#" class="block p-4">Unidades</a>
+            </li>
+            <li class="border-b border-inherit">
+                <a href="#" class="block p-4">Contato</a>
+            </li>
+        </ul>
+
+        <!-- Close Buttom -->
+        <button class="absolute top-0 right-0 bottom-0 left-0" @click="openMenu = !openMenu"
+        :aria-expanded="openMenu" aria-controls="mobile-navigation" aria-label="Close Navegation Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 absolute top-2 left-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+        </button>
+    </nav>
+    <!-- /header -->
+
+    <!-- banner -->
+    <div style="background: url('./img/bannerprincipal.png'); height: 450px">
+        <div class="container max-w-5xl mx-auto px-4 h-full flex items-center justify-center">
+            <div>
+                <div class="text-center">
+                    <h1 class="text-gray-200 text-3xl mb-1">Como podemos ajudar?</h1>
+                    <p class="text-green-100">Escolha Outras Unidades.</p>
+                </div>
+                <div class="mt-7">
+                    <form class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                        <select class="bg-blue-500 px-3 py-2 text-white">
+                            <option value="">Qual Estado?</option>
+                        </select>
+                        <select class="bg-grey-50 px-3 py-2 bg-blue-500 text-white">
+                            <option value="">Qual Cidade?</option>
+                        </select>
+                        <button class="col-span-2 lg:col-span-1 inline-flex items-center justify-center text-white bg-blue-500 font-medium px-3 py-2 rounded">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            Pesquisar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /banner -->
+
+    <!-- featured -->
+    <div>
+        <div class="container max-w-5xl mx-auto px-4 py-20">
+            <div class="flex flex-col-reverse lg:flex-row">
+                <div class="lg:pr-10">
+                    <div class="text-sm text-gray-400 font-medium">CONHEÇA NOSSO PARQUE</div>
+                    <div class="text-2xl mt-1">Um Lindo Parque</div>
+                    <div class="text-sm text-gray-400 font-medium mt-2">Aproveite a diversão</div>
+                    <div class="text-sm text-gray-400 font-medium mt-4">
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ea non quasi? Deleniti error illum necessitatibus officia ullam. Dicta harum laborum minima nam nobis perspiciatis quaerat unde. Aspernatur corporis, voluptas.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ea non quasi? Deleniti error illum necessitatibus officia ullam. Dicta harum laborum minima nam nobis perspiciatis quaerat unde. Aspernatur corporis, voluptas.</p>
+                    </div>
+                    <div class="mt-4">
+                        <a href="" class="inline-flex items-center text-white bg-blue-500 font-medium px-3 py-2 rounded">
+                            Reserve agora
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-shrink-0 lg:ml-auto mb-5 lg:mb-0 rounded overflow-hidden">
+                    <img src="./img/banner1.png" width="450px" class="w-full h-full object-cover" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /featured -->
+
+    <!-- resorts -->
+    <div>
+        <div class="container max-w-5xl mx-auto px-4">
+            <h3 class="text-2xl text-gray-500 font-semibold text-center mb-8">Qualidade de diversão</h3>
+            <div class="md:grid md:grid-cols-4 md:grid-rows-2 md:gap-6 space-y-6 md:space-y-0">
+                <div class="relative md:col-span-2 md:row-span-2 rounded-lg overflow-hidden">
+                    <div class="absolute bottom-0 pl-4 pb-4 text-white font-bold z-20">
+                        Outras Unidades
+                    </div>
+                    <img src="./img/banner2.png" class="w-full h-full object-cover">
+                </div>
+                <div class="relative md:col-span-2 md:h-40 rounded-lg overflow-hidden">
+                    <div class="absolute bottom-0 pl-4 pb-4 text-white font-bold z-20">
+                        Outras Unidades
+                    </div>
+                    <img src="./img/banner3.png" class="w-full h-full object-cover">
+                </div>
+                <div class="relative md:col-span-2 md:h-40 rounded-lg overflow-hidden">
+                    <div class="absolute bottom-0 pl-4 pb-4 text-white font-bold z-20">
+                        Outras Unidades
+                    </div>
+                    <img src="./img/banner4.png" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /resorts -->
+
+    <!-- form search -->
+    <div class="py-20">
+        <div class="container max-w-5xl mx-auto px-4 flex justify-center">
+            <form class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                <select class="bg-grey-50 px-3 py-2 border border-black-500 rounded text-gray-500">
+                    <option value="">Qual Estado?</option>
+                </select>
+                <select class="bg-grey-50 px-3 py-2 border border-blue-500 rounded text-gray-500">
+                    <option value="">Qual Cidade?</option>
+                </select>
+                <button class="col-span-2 lg:col-span-1 inline-flex items-center justify-center text-white bg-blue-500 font-medium px-3 py-2 rounded">
+                    esquisar
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- /form search -->
+
+    <!-- footer -->
+    <div class="bg-blue-500 border border-gray-200">
+        <div class="container max-w-5xl mx-auto p-4 flex items-center justify-between">
+            <h3 class="text-medim text-white font-semibold text-center mx-auto">
+                Copyright - By 2023 - Site simples responsivo - Desenvolvido com Tailwindcss</h3>
+        </div>
+    </div>
+    <!-- /footer -->
+
+</body>
+</html>
