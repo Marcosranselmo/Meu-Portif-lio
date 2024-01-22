@@ -215,3 +215,9 @@ img {
 .card-custom-content p {
     margin-bottom: 0px;
 }
+
+button:disabled {
+    cursor: not-allowed;
+    background: #eef3db;
+
+}
