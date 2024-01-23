@@ -17,7 +17,7 @@ if (isset($_POST['enviar'])) {
         $mail->Username = 'contato@meuportifolio.tech';        
         $mail->Password = 'App.9977';                         
         $mail->SMTPSecure = 'SSL/TLS'; 
-        //$mail->SMTPSecure = 'PHPMailer::ENCRYPTION_SMTPS';                        
+        $mail->SMTPSecure = 'PHPMailer::ENCRYPTION_SMTPS';                        
         $mail->Port = 465;     
 
         //Destinatario
@@ -29,10 +29,10 @@ if (isset($_POST['enviar'])) {
 
         $body = "mensagem enviada através do site, segue informações
         abaixo:<br>
-            Nome: " . $_POST['nome']. "<br>
+            Nome: ". $_POST['nome']. "<br>
             E-mail: ". $_POST['emai']. "<br>
             Assunto: ". $_POST['assunto']. "<br>
-            Mensagem: ". $_POST['mensagem'];
+            Mensagem:<br> ". $_POST['mensagem'];
 
         $mail->Body = $body;
 
